@@ -9,6 +9,7 @@ import {
 } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import Home from './pages/Home';
 
 const drawerWidth = 240;
 
@@ -72,8 +73,7 @@ function App() {
           </li>
         </ul>
         <Switch>
-            <Route exact path='/'>
-              <h1>Home</h1>
+            <Route exact path='/' component={Home}>
             </Route>
             <Route path='/login'>
               <h1>Login</h1>
