@@ -19,6 +19,10 @@ from django.urls import include, path
 from django.conf.urls import url
 import app_01.views
 from rest_framework import routers
+from rest_framework.documentation import include_docs_urls
+API_TITLE = 'roubo api documentation'
+API_DESCRIPTION = 'roubo api server for rouboinfo'
+
 
 router = routers.DefaultRouter()
 router.register(r'users', app_01.views.UserViewSet)
@@ -27,7 +31,11 @@ router.register(r'groups', app_01.views.GroupViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     # path('', include('app_01.urls')),
-    url(r'^', include(router.urls)),
+    url(r'^auth/', include(router.urls)),
     url(r'^test/', app_01.views.TestView.as_view()),
     # path('api/', app_01.views.APIViewSet),
+    url(r'docs/', include_docs_urls(title=API_TITLE,
+                                    description=API_DESCRIPTION,
+                                    authentication_classes=[],
+                                    permission_classes=[]))
 ]

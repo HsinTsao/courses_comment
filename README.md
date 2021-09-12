@@ -1,5 +1,6 @@
 # courses_comment
-
+#### 架构
+![](Desgin.png)
 #### commit 
     `[type](范围) 说明`
 type代表某次提交的类型，比如是修复一个bug还是增加一个新的feature。所有的type类型如下：
