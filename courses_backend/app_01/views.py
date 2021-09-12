@@ -18,12 +18,12 @@ class UserViewSet(viewsets.ModelViewSet):
     serializer_class = UserSerializer
 
 
-class GroupViewSet(viewsets.ModelViewSet):
-    """
-    允许组查看或编辑的API路径。
-    """
-    queryset = Group.objects.all()
-    serializer_class = GroupSerializer
+# class GroupViewSet(viewsets.ModelViewSet):
+#     """
+#     允许组查看或编辑的API路径。
+#     """
+#     queryset = Group.objects.all()
+#     serializer_class = GroupSerializer
 
 class APIViewSet(viewsets.ModelViewSet):
     # models.Subject.objects.create(code='COMP9444',
