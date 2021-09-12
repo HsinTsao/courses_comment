@@ -5,3 +5,4 @@
 /courses_backend/.idea
 /courses_backend/courses_comment/__pycache__
 /courses_frontend/package-lock.json
+/courses_backend/app_01/migrations/__pycache__
