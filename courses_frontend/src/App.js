@@ -5,10 +5,11 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link,
+  // Link,
 } from 'react-router-dom';
 import clsx from 'clsx';
 import { makeStyles } from '@material-ui/core/styles';
+import Home from './pages/Home';
 
 const drawerWidth = 240;
 
@@ -60,7 +61,7 @@ function App() {
         })}
       >
         <div className={classes.drawerHeader} />
-        <ul>
+        {/* <ul>
           <li>
             <Link to="/">Home</Link>
           </li>
@@ -70,10 +71,9 @@ function App() {
           <li>
             <Link to="/register">Register</Link>
           </li>
-        </ul>
+        </ul> */}
         <Switch>
-            <Route exact path='/'>
-              <h1>Home</h1>
+            <Route exact path='/' component={Home}>
             </Route>
             <Route path='/login'>
               <h1>Login</h1>

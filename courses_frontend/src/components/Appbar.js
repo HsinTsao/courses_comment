@@ -102,6 +102,7 @@ const Appbar = (props) => {
           </Typography>
           <Button component={ Link } color="inherit" to='/register'>Register</Button>
           <Button component={ Link } color="inherit" to='/login'>Login</Button>
+          <Button component={ Link } color="inherit" to='/'>Home</Button>
           <Button component={ Link } color="inherit" to='/about'>About</Button>
         </Toolbar>
       </AppBar>
