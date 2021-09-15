@@ -20,13 +20,13 @@ from django.conf.urls import url
 import app_01.views
 from rest_framework import routers
 from rest_framework.documentation import include_docs_urls
-API_TITLE = 'roubo api documentation'
-API_DESCRIPTION = 'roubo api server for rouboinfo'
+API_TITLE = 'courses comment api documentation'
+API_DESCRIPTION = 'courses comment api server for courses comment'
 
 
 router = routers.DefaultRouter()
 router.register(r'users', app_01.views.UserViewSet)
-router.register(r'groups', app_01.views.GroupViewSet)
+# router.register(r'groups', app_01.views.GroupViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
