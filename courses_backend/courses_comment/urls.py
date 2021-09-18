@@ -29,11 +29,20 @@ router.register(r'users', app_01.views.UserViewSet)
 # router.register(r'groups', app_01.views.GroupViewSet)
 
 urlpatterns = [
+    # 管理员页面
     path('admin/', admin.site.urls),
-    # path('', include('app_01.urls')),
     url(r'^auth/', include(router.urls)),
-    url(r'^test/', app_01.views.TestView.as_view()),
+
+    # 课程接口
+    # url(r'^weather2/(?P<city>[a-z]+)/(?P<year>\d{4})/$', views.weather2),
+    # url(r'^test/', app_01.views.TestView.as_view()),
+    # 利用正则组起别名 提取url路径参数 关键字参数,
+    # #如果给正则组起了别名,那么对应的形参名必须和别名一致
+    url(r'^courses/(?P<code>[A-Z]+\d{4})/$', app_01.views.CoursesView.as_view()),
     # path('api/', app_01.views.APIViewSet),
+
+
+    # API文档
     url(r'docs/', include_docs_urls(title=API_TITLE,
                                     description=API_DESCRIPTION,
                                     authentication_classes=[],

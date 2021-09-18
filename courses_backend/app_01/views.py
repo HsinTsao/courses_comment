@@ -34,7 +34,7 @@ class UserViewSet(viewsets.ModelViewSet):
 #     serializer_class = SubjectSerializer
 
 
-class TestView(APIView):
+class CoursesView(APIView):
     def dispatch(self, request, *args, **kwargs):
         """
         请求到来之后，都要执行dispatch方法，dispatch方法根据请求方式不同触发 get/post/put等方法
@@ -68,10 +68,10 @@ class TestView(APIView):
             return Response(verified_data.errors, status=400)
         # return Response('POST请求，响应内容')
 
-    def put(self, request, course_code):
+    def put(self, request, code):
         print(request.data)
-        print(course_code)
-        course_obj = Course.objects.get(pk=course_code)
+        print(code)
+        course_obj = Course.objects.get(code=code)
         verified_data = CoursesSerializer(instance=course_obj, data=request.data)
         # 校验数据
         if verified_data.is_valid():
