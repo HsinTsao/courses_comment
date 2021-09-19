@@ -39,7 +39,8 @@ urlpatterns = [
     # 利用正则组起别名 提取url路径参数 关键字参数,
     # #如果给正则组起了别名,那么对应的形参名必须和别名一致
     url(r'^courses/(?P<code>[A-Z]+\d{4})/$', app_01.views.CoursesView.as_view()),
-    # path('api/', app_01.views.APIViewSet),
+
+    url(r'^students/(?P<name>.+)/$', app_01.views.StudentsView.as_view()),
 
 
     # API文档

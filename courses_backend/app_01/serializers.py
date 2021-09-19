@@ -1,6 +1,5 @@
 from rest_framework import serializers
-from django.contrib.auth.models import User
-from .models import Course
+from .models import Course, Students
 from django.contrib.auth.models import User, Group
 
 
@@ -17,7 +16,6 @@ class GroupSerializer(serializers.HyperlinkedModelSerializer):
 
 
 class CoursesSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Course
         fields = ('code', 'name_en', 'url', 'term', 'year')
@@ -42,5 +40,20 @@ class CoursesSerializer(serializers.ModelSerializer):
                 'required': True,
                 'help_text': '学年'
             },
+
+        }
+
+
+class StudentsSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Students
+        fields = (
+            "name",
+            "email",
+            "password",
+            "register_time"
+        )
+
+        extra_kwargs = {
 
         }
