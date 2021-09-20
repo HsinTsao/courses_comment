@@ -25,22 +25,22 @@ API_DESCRIPTION = 'courses comment api server for courses comment'
 
 
 router = routers.DefaultRouter()
-router.register(r'users', app_01.views.UserViewSet)
-# router.register(r'groups', app_01.views.GroupViewSet)
-
+router.register(r'auth', app_01.views.UserViewSet)
+router.register(r'courses', app_01.views.CoursesView)
+router.register(r'students', app_01.views.StudentsView)
 urlpatterns = [
     # 管理员页面
     path('admin/', admin.site.urls),
-    url(r'^auth/', include(router.urls)),
+    # url(r'^auth/', include(router.urls)),
 
-    # 课程接口
-    # url(r'^weather2/(?P<city>[a-z]+)/(?P<year>\d{4})/$', views.weather2),
-    # url(r'^test/', app_01.views.TestView.as_view()),
+    # 课程接口 [已整合为自动路由]
     # 利用正则组起别名 提取url路径参数 关键字参数,
     # #如果给正则组起了别名,那么对应的形参名必须和别名一致
-    url(r'^courses/(?P<code>[A-Z]+\d{4})/$', app_01.views.CoursesView.as_view()),
+    # url(r'^courses/$', app_01.views.CoursesView.as_view({'get':'list','post':'create'})),
+    # url(r'^courses/(?P<code>[A-Z]+\d{4})/$', app_01.views.CoursesView.as_view({'get':'retrieve','put':'update','delete':'destroy'})),
 
-    url(r'^students/(?P<name>.+)/$', app_01.views.StudentsView.as_view()),
+    # url(r'^students/$', app_01.views.StudentsView.as_view({'get':'list','post':'create'})),
+    # url(r'^students/(?P<name>.+)/$', app_01.views.StudentsView.as_view({'get':'retrieve','put':'update','delete':'destroy'})),
 
 
     # API文档
@@ -49,3 +49,4 @@ urlpatterns = [
                                     authentication_classes=[],
                                     permission_classes=[]))
 ]
+urlpatterns += router.urls          #拼接modelviewset里的路由

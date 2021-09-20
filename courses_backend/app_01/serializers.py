@@ -6,19 +6,19 @@ from django.contrib.auth.models import User, Group
 class UserSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = User
-        fields = ('url', 'username', 'email', 'groups', 'is_staff')
+        fields = ('id', 'url', 'username', 'email', 'groups', 'is_staff')
 
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
     class Meta:
         model = Group
-        fields = ('url', 'name')
+        fields = ('id', 'url', 'name')
 
 
 class CoursesSerializer(serializers.ModelSerializer):
     class Meta:
         model = Course
-        fields = ('code', 'name_en', 'url', 'term', 'year')
+        fields = ('id', 'code', 'name_en', 'url', 'term', 'year')
         extra_kwargs = {
             'code': {
                 'required': True,
@@ -29,7 +29,7 @@ class CoursesSerializer(serializers.ModelSerializer):
                 'help_text': '课程英文名称'
             },
             'url': {
-                'required': True,
+                'required': False,
                 'help_text': 'handbook链接'
             },
             'term': {
@@ -48,6 +48,7 @@ class StudentsSerializer(serializers.ModelSerializer):
     class Meta:
         model = Students
         fields = (
+            'id',
             "name",
             "email",
             "password",
